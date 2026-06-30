@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+void findDuplicate() {
+    char f[] = "finding";
+    int arr[26] = {0};
+
+    for (int i = 0; f[i] != '\0'; i++){
+        if (arr[f[i] - 'a'] !=0)
+           cout<<f[i]<<endl;
+        else
+           arr[f[i] - 'a'] =1;
+        
+    } 
+     
+}
+void findDuplicateBitWise(){
+    char f[] = "finding";
+    int H = 0; 
+    int x = 0;
+  
+    for (int i = 0; f[i] != '\0'; i++){
+        x=1;
+        x=x<<(f[i] - 'a');
+        if (x & H)
+           cout<<f[i]<<endl;
+        else
+           H = H | x;
+        
+    } 
+     
+}
+
+int main()
+{
+    
+    findDuplicate();
+    findDuplicateBitWise();
+ 
+    return 0;
+}
